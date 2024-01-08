@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useRef, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import CustomModelLoad from "./components/CustomModelLoad";
+import CustomModelAnimation from "./components/CustomModelAnimation";
+
+// import "./assets/tailwind.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="bg-gray-300 p-4">
+        <div>
+          <Link to="/CustomModelLoad">[glb 파일 불러ssss오기]</Link>
+        </div>
+        <div>
+          <Link to="/CustomModelAnimation">[커스텀 모델ssss 애니메이션]</Link>
+        </div>
+      </div>
+      <Routes>
+        <Route path="/CustomModelLoad" element={<CustomModelLoad />}></Route>
+        <Route
+          path="/CustomModelAnimation"
+          element={<CustomModelAnimation />}
+        ></Route>
+      </Routes>
+    </Router>
   );
 }
 
