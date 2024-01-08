@@ -11,10 +11,10 @@ function App() {
     <Router>
       <div className="bg-gray-300 p-4">
         <div>
-          <Link to="/CustomModelLoad">[glb 파일 불러ssss오기]</Link>
+          <Link to="/CustomModelLoad">[glb 파일 불러오기]</Link>
         </div>
         <div>
-          <Link to="/CustomModelAnimation">[커스텀 모델ssss 애니메이션]</Link>
+          <Link to="/CustomModelAnimation">[커스텀 모델 애니메이션]</Link>
         </div>
       </div>
       <Routes>
