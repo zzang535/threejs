@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import CustomModelLoad from "./components/CustomModelLoad";
 import CustomModelAnimation from "./components/CustomModelAnimation";
+import PhysicsEngineWorld from "./components/PhysicsEngineWorld";
+import ContactMaterial from "./components/ContactMaterial";
+import Force from "./components/Force";
 
 // import "./assets/tailwind.css";
 
@@ -16,6 +19,19 @@ function App() {
         <div>
           <Link to="/CustomModelAnimation">[커스텀 모델 애니메이션]</Link>
         </div>
+        <div>
+          <Link to="/PhysicsEngineWorld">
+            [물리엔진 월드 생성 (PhysicsEngineWorld)]
+          </Link>
+        </div>
+        <div>
+          <Link to="/ContactMaterial">
+            [재질에 다른 마찰력과 반발력 (Contact Material)]
+          </Link>
+        </div>
+        <div>
+          <Link to="/Force">[힘 (Force)]</Link>
+        </div>
       </div>
       <Routes>
         <Route path="/CustomModelLoad" element={<CustomModelLoad />}></Route>
@@ -23,6 +39,12 @@ function App() {
           path="/CustomModelAnimation"
           element={<CustomModelAnimation />}
         ></Route>
+        <Route
+          path="/PhysicsEngineWorld"
+          element={<PhysicsEngineWorld />}
+        ></Route>
+        <Route path="/ContactMaterial" element={<ContactMaterial />}></Route>
+        <Route path="/Force" element={<Force />}></Route>
       </Routes>
     </Router>
   );
