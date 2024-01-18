@@ -6,6 +6,7 @@ import CustomModelAnimation from "./components/CustomModelAnimation";
 import PhysicsEngineWorld from "./components/PhysicsEngineWorld";
 import ContactMaterial from "./components/ContactMaterial";
 import Force from "./components/Force";
+import RandomPositionBallCreate from "./components/RandomPositionBallCreate";
 
 // import "./assets/tailwind.css";
 
@@ -14,10 +15,14 @@ function App() {
     <Router>
       <div className="bg-gray-300 p-4">
         <div>
-          <Link to="/CustomModelLoad">[glb 파일 불러오기]</Link>
+          <Link to="/CustomModelLoad">
+            [커스텀 모델 로드 (CustomModelLoad)]
+          </Link>
         </div>
         <div>
-          <Link to="/CustomModelAnimation">[커스텀 모델 애니메이션]</Link>
+          <Link to="/CustomModelAnimation">
+            [커스텀 모델 애니메이션 (CustomModelAnimation)]
+          </Link>
         </div>
         <div>
           <Link to="/PhysicsEngineWorld">
@@ -30,7 +35,12 @@ function App() {
           </Link>
         </div>
         <div>
-          <Link to="/Force">[힘 (Force)]</Link>
+          <Link to="/Force">[힘 (Force) - 화면을 클릭]</Link>
+        </div>
+        <div>
+          <Link to="/RandomPositionBallCreate">
+            [랜덤 위치에 공 생성하기 (RandomPositionBallCreate) - 화면을 클릭]
+          </Link>
         </div>
       </div>
       <Routes>
@@ -45,6 +55,10 @@ function App() {
         ></Route>
         <Route path="/ContactMaterial" element={<ContactMaterial />}></Route>
         <Route path="/Force" element={<Force />}></Route>
+        <Route
+          path="/RandomPositionBallCreate"
+          element={<RandomPositionBallCreate />}
+        ></Route>
       </Routes>
     </Router>
   );
