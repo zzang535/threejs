@@ -7,6 +7,7 @@ import PhysicsEngineWorld from "./components/PhysicsEngineWorld";
 import ContactMaterial from "./components/ContactMaterial";
 import Force from "./components/Force";
 import RandomPositionBallCreate from "./components/RandomPositionBallCreate";
+import CollisionSound from "./components/\bCollisionSound";
 
 // import "./assets/tailwind.css";
 
@@ -42,6 +43,9 @@ function App() {
             [랜덤 위치에 공 생성하기 (RandomPositionBallCreate) - 화면을 클릭]
           </Link>
         </div>
+        <div>
+          <Link to="/CollisionSound">[충돌 사운드 (CollisionSound)]</Link>
+        </div>
       </div>
       <Routes>
         <Route path="/CustomModelLoad" element={<CustomModelLoad />}></Route>
@@ -59,6 +63,7 @@ function App() {
           path="/RandomPositionBallCreate"
           element={<RandomPositionBallCreate />}
         ></Route>
+        <Route path="/CollisionSound" element={<CollisionSound />}></Route>
       </Routes>
     </Router>
   );
