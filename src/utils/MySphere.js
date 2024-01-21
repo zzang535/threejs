@@ -15,6 +15,7 @@ export class MySphere {
     this.mesh = new Mesh(this.geometry, this.material);
     this.mesh.scale.set(this.scale, this.scale, this.scale);
     this.mesh.castShadow = true;
+    this.mesh.name = "ball";
     this.mesh.position.set(this.x, this.y, this.z);
     this.scene.add(this.mesh);
 

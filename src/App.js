@@ -7,7 +7,8 @@ import PhysicsEngineWorld from "./components/PhysicsEngineWorld";
 import ContactMaterial from "./components/ContactMaterial";
 import Force from "./components/Force";
 import RandomPositionBallCreate from "./components/RandomPositionBallCreate";
-import CollisionSound from "./components/\bCollisionSound";
+import CollisionSound from "./components/CollisionSound";
+import ObjectRemove from "./components/ObjectRemove";
 
 // import "./assets/tailwind.css";
 
@@ -46,6 +47,11 @@ function App() {
         <div>
           <Link to="/CollisionSound">[충돌 사운드 (CollisionSound)]</Link>
         </div>
+        <div>
+          <Link to="/ObjectRemove">
+            [오브젝트 제거 (ObjectRemove) - 화면을 클릭, 삭제버튼 클릭]
+          </Link>
+        </div>
       </div>
       <Routes>
         <Route path="/CustomModelLoad" element={<CustomModelLoad />}></Route>
@@ -64,6 +70,7 @@ function App() {
           element={<RandomPositionBallCreate />}
         ></Route>
         <Route path="/CollisionSound" element={<CollisionSound />}></Route>
+        <Route path="/ObjectRemove" element={<ObjectRemove />}></Route>
       </Routes>
     </Router>
   );
