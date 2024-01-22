@@ -9,8 +9,7 @@ import Force from "./components/Force";
 import RandomPositionBallCreate from "./components/RandomPositionBallCreate";
 import CollisionSound from "./components/CollisionSound";
 import ObjectRemove from "./components/ObjectRemove";
-
-// import "./assets/tailwind.css";
+import Domino from "./components/Domino";
 
 function App() {
   return (
@@ -52,6 +51,9 @@ function App() {
             [오브젝트 제거 (ObjectRemove) - 화면을 클릭, 삭제버튼 클릭]
           </Link>
         </div>
+        <div>
+          <Link to="/Domino">[도미노 (Domino)]</Link>
+        </div>
       </div>
       <Routes>
         <Route path="/CustomModelLoad" element={<CustomModelLoad />}></Route>
@@ -71,6 +73,7 @@ function App() {
         ></Route>
         <Route path="/CollisionSound" element={<CollisionSound />}></Route>
         <Route path="/ObjectRemove" element={<ObjectRemove />}></Route>
+        <Route path="/Domino" element={<Domino />}></Route>
       </Routes>
     </Router>
   );
