@@ -1,12 +1,13 @@
-// module
-import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import * as CANNON from "cannon-es";
+
+import { useEffect, useRef, useState } from "react";
+
 import { PreventDragClick } from "../utils/PreventDragClick";
-import mySound from "../assets/boing.mp3";
 import { Domino } from "../utils/Domino";
+import mySound from "../assets/boing.mp3";
 
 // ----- 주제: Domino
 // 도미노
@@ -84,8 +85,8 @@ export default function ObjectRemove() {
       defaultMaterial,
       defaultMaterial,
       {
-        friction: 0.5,
-        restitution: 0.3,
+        friction: 0.01,
+        restitution: 0.9,
       }
     );
     cannonWorld.defaultContactMaterial = defaultContactMaterial;
@@ -121,9 +122,11 @@ export default function ObjectRemove() {
     let domino;
     for (let i = 0; i < 20; i++) {
       domino = new Domino({
+        index: i,
         scene: scene,
         cannonWorld: cannonWorld,
         gltfLoader: gltfLoader,
+        // y: 2,
         z: -i * 0.8,
       });
       dominos.push(domino);
@@ -141,6 +144,13 @@ export default function ObjectRemove() {
       if (delta < 0.01) cannonStepTime = 1 / 120;
       cannonWorld.step(cannonStepTime, delta, 3);
 
+      dominos.forEach((item) => {
+        if (item.cannonBody) {
+          item.modelMesh.position.copy(item.cannonBody.position);
+          item.modelMesh.quaternion.copy(item.cannonBody.quaternion);
+        }
+      });
+
       renderer.render(sceneRef.current, camera);
       renderer.setAnimationLoop(draw);
     }
@@ -154,9 +164,50 @@ export default function ObjectRemove() {
 
     const sound = new Audio(mySound);
 
+    // Raycaster
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    function checkIntersects() {
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(sceneRef.current.children);
+      console.log("intersects", intersects);
+      intersects.map((item) => {
+        console.log(item.object.name);
+        return true;
+      });
+
+      for (const item of intersects) {
+        if (item.object.cannonBody) {
+          item.object.cannonBody.applyForce(
+            new CANNON.Vec3(0, 0, -100),
+            new CANNON.Vec3(0, 0, 0)
+          );
+          break;
+        }
+      }
+
+      // if (intersects.length > 0) {
+      //   if (intersects[0].object.cannonBody) {
+      //     intersects[0].object.cannonBody.applyForce(
+      //       new CANNON.Vec3(0, 0, -100),
+      //       new CANNON.Vec3(0, 0, 0)
+      //     );
+      //   }
+      // }
+    }
+
     // 이벤트
     window.addEventListener("resize", setSize);
-    rendererRef.current.addEventListener("click", () => {});
+    rendererRef.current.addEventListener("click", (e) => {
+      if (preventDragClick.mouseMoved) return;
+      // console.log(rendererRef.current);
+      mouse.x = (e.clientX / rendererRef.current.clientWidth) * 2 - 1;
+      mouse.y = -((e.clientY / rendererRef.current.clientHeight) * 2 - 1);
+      // console.log(mouse.x);
+      // console.log(mouse.y);
+      checkIntersects();
+    });
 
     const preventDragClick = new PreventDragClick(rendererRef.current);
 
