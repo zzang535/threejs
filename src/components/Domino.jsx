@@ -21,8 +21,6 @@ export default function ObjectRemove() {
   const sceneRef = useRef(null); // 신 참조
 
   useEffect(() => {
-    console.log("useEffect", useEffect);
-
     // Renderer
     // const canvas = document.querySelector("#three-canvas");
     const renderer = new THREE.WebGLRenderer({
@@ -177,6 +175,7 @@ export default function ObjectRemove() {
         return true;
       });
 
+      // 힘을 가함
       for (const item of intersects) {
         if (item.object.cannonBody) {
           item.object.cannonBody.applyForce(

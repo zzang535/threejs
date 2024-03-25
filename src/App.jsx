@@ -16,6 +16,12 @@ import RandomPositionBallCreate from "./components/RandomPositionBallCreate";
 import CollisionSound from "./components/CollisionSound";
 import ObjectRemove from "./components/ObjectRemove";
 import Domino from "./components/Domino";
+import BasicGeometryParticle from "./components/BasicGeometryParticle";
+import RandomParticle from "./components/RandomParticle";
+import ParticleImage from "./components/ParticleImage";
+import VariousColorParticle from "./components/VariousColorParticle";
+import PointCoordinatesMesh from "./components/PointCoordinatesMesh";
+import FormatChangingImagePanel from "./components/FormatChangingImagePanel";
 
 function App() {
   const location = useLocation();
@@ -62,6 +68,32 @@ function App() {
           <div>
             <Link to="/Domino">[도미노 (Domino)]</Link>
           </div>
+          <div>
+            <Link to="/BasicGeometryParticle">
+              [기본 지오메트리 파티클 (BasicGeometryParticle)]
+            </Link>
+          </div>
+          <div>
+            <Link to="/RandomParticle">[랜덤 파티클 (RandomParticle)]</Link>
+          </div>
+          <div>
+            <Link to="/ParticleImage">[파티클 이미지(ParticleImage)]</Link>
+          </div>
+          <div>
+            <Link to="/VariousColorParticle">
+              [여러가지 색의 파티클(VariousColorParticle)]
+            </Link>
+          </div>
+          <div>
+            <Link to="/PointCoordinatesMesh">
+              [포인트 좌표에 메쉬 생성하기(PointCoordinatesMesh)]
+            </Link>
+          </div>
+          <div>
+            <Link to="/FormatChangingImagePanel">
+              [형태가 바뀌는 이미지 패널 만들기(FormatChangingImagePanel)]
+            </Link>
+          </div>
         </div>
       )}
       <Routes>
@@ -83,6 +115,24 @@ function App() {
         <Route path="/CollisionSound" element={<CollisionSound />}></Route>
         <Route path="/ObjectRemove" element={<ObjectRemove />}></Route>
         <Route path="/Domino" element={<Domino />}></Route>
+        <Route
+          path="/BasicGeometryParticle"
+          element={<BasicGeometryParticle />}
+        ></Route>
+        <Route path="/RandomParticle" element={<RandomParticle />}></Route>
+        <Route path="/ParticleImage" element={<ParticleImage />}></Route>
+        <Route
+          path="/VariousColorParticle"
+          element={<VariousColorParticle />}
+        ></Route>
+        <Route
+          path="/PointCoordinatesMesh"
+          element={<PointCoordinatesMesh />}
+        ></Route>
+        <Route
+          path="/FormatChangingImagePanel"
+          element={<FormatChangingImagePanel />}
+        ></Route>
       </Routes>
     </>
   );
