@@ -174,6 +174,15 @@ export default function VariousColorParticle() {
     window.addEventListener("resize", setSize);
 
     draw();
+
+    return () => {
+      // 이벤트 리스너 제거
+      btnWrapper.removeEventListener("click", setShape);
+      window.removeEventListener("resize", setSize);
+
+      // 버튼 제거
+      document.body.removeChild(btnWrapper);
+    };
   }, []);
 
   return <div ref={rendererRef}></div>;

@@ -22,6 +22,7 @@ import ParticleImage from "./components/ParticleImage";
 import VariousColorParticle from "./components/VariousColorParticle";
 import PointCoordinatesMesh from "./components/PointCoordinatesMesh";
 import FormatChangingImagePanel from "./components/FormatChangingImagePanel";
+import ScrollPage from "./components/ScrollPage";
 
 function App() {
   const location = useLocation();
@@ -81,19 +82,22 @@ function App() {
           </div>
           <div>
             <Link to="/VariousColorParticle">
-              [여러가지 색의 파티클(VariousColorParticle)]
+              [여러가지 색의 파티클 (VariousColorParticle)]
             </Link>
           </div>
           <div>
             <Link to="/PointCoordinatesMesh">
-              [포인트 좌표에 메쉬 생성하기(PointCoordinatesMesh)]
+              [포인트 좌표에 메쉬 생성하기 (PointCoordinatesMesh)]
             </Link>
           </div>
           <div>
             <Link to="/FormatChangingImagePanel">
-              [형태가 바뀌는 이미지 패널 만들기(FormatChangingImagePanel)]
+              [형태가 바뀌는 이미지 패널 만들기 (FormatChangingImagePanel)]
             </Link>
           </div>
+          {/* <div>
+            <Link to="/ScrollPage">[스크롤 페이지 (ScrollPage)]</Link>
+          </div> */}
         </div>
       )}
       <Routes>
@@ -133,6 +137,7 @@ function App() {
           path="/FormatChangingImagePanel"
           element={<FormatChangingImagePanel />}
         ></Route>
+        <Route path="/ScrollPage" element={<ScrollPage />}></Route>
       </Routes>
     </>
   );
