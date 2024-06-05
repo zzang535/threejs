@@ -95,9 +95,9 @@ function App() {
               [형태가 바뀌는 이미지 패널 만들기 (FormatChangingImagePanel)]
             </Link>
           </div>
-          {/* <div>
+          <div>
             <Link to="/ScrollPage">[스크롤 페이지 (ScrollPage)]</Link>
-          </div> */}
+          </div>
         </div>
       )}
       <Routes>
